@@ -510,6 +510,170 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+    /* =========================================
+       SERVICE CARD DETAILS
+    ========================================= */
+
+    const serviceData = {
+        "Social Media Management": {
+            number: "01",
+            description: "I help keep your social presence organized, consistent, and ready to publish—from planning and captions to scheduling and day-to-day content coordination.",
+            items: [
+                "Content calendar planning",
+                "Caption writing and hashtag support",
+                "Scheduling and publishing assistance",
+                "Engagement and content coordination"
+            ]
+        },
+        "Short-Form Video Editing": {
+            number: "02",
+            description: "I turn raw footage, ideas, and scripts into polished short-form content designed for Reels, TikTok, and YouTube Shorts.",
+            items: [
+                "Reels, TikTok, and YouTube Shorts",
+                "Hooks, pacing, subtitles, and transitions",
+                "Educational and promotional edits",
+                "Voiceover, music, and visual polish"
+            ]
+        },
+        "Content Creation & Design": {
+            number: "03",
+            description: "I create clean, branded visual assets that help businesses communicate clearly across social media and marketing channels.",
+            items: [
+                "Canva social graphics and carousels",
+                "Branded promotional materials",
+                "Presentation and slide design",
+                "Marketing assets for campaigns"
+            ]
+        },
+        "Content & Copy Support": {
+            number: "04",
+            description: "I help turn rough ideas into clear, audience-focused messaging that is easier to publish and easier for people to understand.",
+            items: [
+                "Hooks and captions",
+                "Short-form video scripts",
+                "Content ideas and angles",
+                "Audience-focused messaging"
+            ]
+        },
+        "Digital Marketing Support": {
+            number: "05",
+            description: "I support the research and execution behind digital marketing so creative work is connected to real business goals.",
+            items: [
+                "Lead generation support",
+                "Market and competitor research",
+                "Campaign assistance",
+                "Marketing coordination and organization"
+            ]
+        },
+        "Virtual Assistance": {
+            number: "06",
+            description: "I provide dependable digital support that helps keep everyday business tasks organized, documented, and moving forward.",
+            items: [
+                "Administrative support",
+                "Online research and data organization",
+                "File and workflow organization",
+                "Day-to-day digital business assistance"
+            ]
+        }
+    };
+
+    const serviceCards = document.querySelectorAll(".service-card");
+
+    if (serviceCards.length) {
+        const modal = document.createElement("div");
+        modal.className = "service-modal";
+        modal.setAttribute("aria-hidden", "true");
+        modal.innerHTML = `
+            <div class="service-modal-card" role="dialog" aria-modal="true" aria-labelledby="service-modal-title">
+                <button class="service-modal-close" type="button" aria-label="Close service details">×</button>
+                <span class="service-modal-number" id="service-modal-number"></span>
+                <h3 id="service-modal-title"></h3>
+                <p id="service-modal-description"></p>
+                <ul class="service-modal-list" id="service-modal-list"></ul>
+                <a class="button button-primary service-modal-cta" href="#contact">Let's Work Together <span>↗</span></a>
+            </div>
+        `;
+
+        document.body.appendChild(modal);
+
+        const modalCard = modal.querySelector(".service-modal-card");
+        const closeButton = modal.querySelector(".service-modal-close");
+        const modalNumber = modal.querySelector("#service-modal-number");
+        const modalTitle = modal.querySelector("#service-modal-title");
+        const modalDescription = modal.querySelector("#service-modal-description");
+        const modalList = modal.querySelector("#service-modal-list");
+        const modalCta = modal.querySelector(".service-modal-cta");
+        let lastFocusedCard = null;
+
+        const closeServiceModal = () => {
+            modal.classList.remove("is-open");
+            modal.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("modal-open");
+
+            if (lastFocusedCard) {
+                lastFocusedCard.focus();
+            }
+        };
+
+        const openServiceModal = (card) => {
+            const title = card.querySelector("h3")?.textContent.trim();
+            const data = serviceData[title];
+
+            if (!data) {
+                return;
+            }
+
+            lastFocusedCard = card;
+            card.setAttribute("aria-expanded", "true");
+            modalNumber.textContent = data.number;
+            modalTitle.textContent = title;
+            modalDescription.textContent = data.description;
+            modalList.innerHTML = data.items.map((item) => `<li>${item}</li>`).join("");
+
+            modal.classList.add("is-open");
+            modal.setAttribute("aria-hidden", "false");
+            document.body.classList.add("modal-open");
+            closeButton.focus();
+        };
+
+        serviceCards.forEach((card) => {
+            card.setAttribute("role", "button");
+            card.setAttribute("tabindex", "0");
+            card.setAttribute("aria-expanded", "false");
+
+            card.addEventListener("click", () => {
+                openServiceModal(card);
+            });
+
+            card.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                    event.preventDefault();
+                    openServiceModal(card);
+                }
+            });
+        });
+
+        closeButton.addEventListener("click", closeServiceModal);
+
+        modal.addEventListener("click", (event) => {
+            if (event.target === modal) {
+                closeServiceModal();
+            }
+        });
+
+        document.addEventListener("keydown", (event) => {
+            if (event.key === "Escape" && modal.classList.contains("is-open")) {
+                closeServiceModal();
+            }
+        });
+
+        modalCta.addEventListener("click", closeServiceModal);
+
+        modalCard.addEventListener("click", (event) => {
+            event.stopPropagation();
+        });
+    }
+
 
     console.log(
         "Glademyr Digital Studio loaded successfully."
