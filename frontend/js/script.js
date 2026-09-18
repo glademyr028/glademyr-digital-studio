@@ -674,6 +674,32 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* =========================================
+       WORK PORTFOLIO FILTERS
+    ========================================= */
+
+    const workFilters = document.querySelectorAll(".work-filter");
+    const workProjects = document.querySelectorAll(".work-project");
+
+    if (workFilters.length && workProjects.length) {
+        workFilters.forEach((filterButton) => {
+            filterButton.addEventListener("click", () => {
+                const selected = filterButton.dataset.filter;
+
+                workFilters.forEach((button) => {
+                    button.classList.toggle("active", button === filterButton);
+                });
+
+                workProjects.forEach((project) => {
+                    const categories = (project.dataset.category || "").split(" ");
+                    const show = selected === "all" || categories.includes(selected);
+
+                    project.classList.toggle("is-hidden", !show);
+                });
+            });
+        });
+    }
+
 
     console.log(
         "Glademyr Digital Studio loaded successfully."
