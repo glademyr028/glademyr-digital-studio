@@ -2722,3 +2722,96 @@ body.modal-open {
         min-height: 300px;
     }
 }
+
+
+/* =========================================================
+   ACCESSIBLE LIGHT THEME — ALL PAGES
+   High contrast, comfortable type, premium violet accents.
+   ========================================================= */
+:root {
+    --obsidian: #ffffff;
+    --black: #ffffff;
+    --surface: #ffffff;
+    --surface-light: #f5f3fa;
+    --white: #181421;
+    --silver: #353040;
+    --muted: #514b5b;
+    --violet: #6332aa;
+    --lavender: #6332aa;
+    --purple-dark: #41216f;
+    --text: #181421;
+    --border: rgba(37, 25, 53, 0.16);
+    --border-light: rgba(37, 25, 53, 0.25);
+}
+html { color-scheme: light; }
+body { background: #ffffff; color: #181421; font-size: 17px; line-height: 1.7; }
+.site-background {
+    background: radial-gradient(circle at 85% 5%, rgba(116, 73, 174, 0.075), transparent 34%),
+                radial-gradient(circle at 0% 65%, rgba(116, 73, 174, 0.045), transparent 34%), #ffffff;
+}
+.ambient-glow { opacity: 0.035; }
+.site-header { background: rgba(255,255,255,0.96); border-bottom: 1px solid #e5e0ec; }
+.brand-name, .nav-links a { color: #181421; }
+.brand-studio, .availability, .work-note p, .compiled-note { color: #514b5b; }
+.nav-links a:hover, .nav-links a.active { color: #6332aa; }
+.nav-contact, .button-secondary { background: #ffffff; color: #2b2138; border-color: #8c7a9e; }
+.nav-contact:hover, .button-secondary:hover { background: #f4effb; color: #41216f; }
+.mobile-menu-button { background: #ffffff; border-color: #bdb0ca; }
+.mobile-menu-button span { background: #181421; }
+.eyebrow, .pillar-number, .service-number, .detail-label,
+.work-project-meta span, .compiled-placeholder span { color: #6332aa; }
+.hero h1 span, .positioning h2 em, .section-heading h2 span,
+.work-hero-heading h1 span, .work-cta-inner h2 span { color: #6332aa; }
+.hero-description, .section-introduction, .section-heading > p,
+.pillar p, .service-card p, .work-hero-heading p, .work-project-meta p,
+.project-detail-heading p, .project-gallery-header p,
+.compiled-placeholder small { color: #514b5b; }
+.button { font-size: 15px; min-height: 50px; }
+.button-primary { background: #6332aa; color: #ffffff; box-shadow: 0 8px 24px rgba(74,36,125,.15); }
+.button-primary:hover { background: #4b247f; color: #ffffff; }
+:focus-visible { outline: 3px solid #6332aa; outline-offset: 4px; }
+.pillar, .service-card, .work-project, .work-note, .work-cta-inner,
+.project-detail-cta, .detail-list li, .compiled-item {
+    background-color: #ffffff;
+    border-color: #e2dce9;
+}
+.pillar:hover, .service-card:hover { background: #f7f3fb; }
+.work-filter { background: #ffffff; color: #383043; border-color: #c9bfd4; font-size: 14px; }
+.work-filter:hover, .work-filter.active { background: #6332aa; color: #ffffff; border-color: #6332aa; }
+.work-project-meta, .project-gallery-header { border-color: #e2dce9; }
+.work-note, .work-cta-inner, .project-detail-cta { background: #faf8fd; }
+.compiled-placeholder { background: linear-gradient(145deg,#f4effb,#ffffff); }
+.project-back:hover { color: #6332aa; }
+.detail-list li { color: #181421; font-size: 15px; }
+.project-detail-visual, .work-project-visual, .project-visual {
+    /* Keep original project artwork and its white-on-dark lettering intact. */
+    color: #ffffff;
+}
+.project-detail-visual span, .work-project-visual .project-category,
+.project-visual .project-category { color: #eee0ff; }
+.project-detail-visual strong, .work-project-big-title,
+.project-visual .project-title { color: #ffffff; }
+.logo-frame {
+    background: #f7f3fc;
+    border-color: #e2dce9;
+    box-shadow: 0 20px 65px rgba(46,29,64,.09);
+}
+.logo-frame img { mix-blend-mode: normal; }
+.hero-orbit { border-color: rgba(99,50,170,.18); }
+.floating-card { background: #ffffff; color: #181421; border-color: #e2dce9; box-shadow: 0 12px 35px rgba(37,25,53,.12); }
+.floating-number { color: #6332aa; }
+.service-modal-card { background: #ffffff; color: #181421; border: 1px solid #e2dce9; }
+.service-modal-card p, .service-modal-card li { color: #514b5b; }
+.service-modal-close { color: #181421; }
+.site-footer { background: #faf8fd; border-top: 1px solid #e2dce9; }
+.footer-links a, .footer-bottom, .footer-brand p { color: #514b5b; }
+.footer-links a:hover { color: #6332aa; }
+@media (max-width: 800px) {
+    .nav-links { background: #ffffff; }
+    .nav-links a { color: #181421; }
+}
+@media (max-width: 650px) {
+    body { font-size: 16px; }
+    .container { width: min(100% - 36px, var(--container)); }
+    .section { padding-top: 80px; padding-bottom: 80px; }
+}
