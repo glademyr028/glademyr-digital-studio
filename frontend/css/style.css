@@ -2815,3 +2815,74 @@ body { background: #ffffff; color: #181421; font-size: 17px; line-height: 1.7; }
     .container { width: min(100% - 36px, var(--container)); }
     .section { padding-top: 80px; padding-bottom: 80px; }
 }
+
+
+/* =========================================================
+   SENIOR-FRIENDLY READABILITY + CONSISTENT WHITE HEADER
+   Applied after legacy dark scroll-state styles.
+   ========================================================= */
+.site-header,
+.site-header.scrolled {
+    background: rgba(255,255,255,.98);
+    color: #181421;
+    border-bottom: 1px solid #ded8e6;
+    box-shadow: 0 3px 18px rgba(39,27,52,.065);
+}
+.site-header .brand-name,
+.site-header.scrolled .brand-name,
+.site-header .nav-links a,
+.site-header.scrolled .nav-links a { color: #21182e; }
+.site-header .nav-links a:hover,
+.site-header.scrolled .nav-links a:hover,
+.site-header .nav-links a.active,
+.site-header.scrolled .nav-links a.active { color: #6332aa; }
+.site-header .nav-contact,
+.site-header.scrolled .nav-contact {
+    background: #6332aa;
+    color: #ffffff !important;
+    border-color: #6332aa;
+}
+.site-header .nav-contact:hover,
+.site-header.scrolled .nav-contact:hover { background: #4b247f; }
+.site-header .brand-studio,
+.site-header.scrolled .brand-studio { color: #514b5b; }
+.site-header .mobile-menu-button span,
+.site-header.scrolled .mobile-menu-button span { background: #21182e; }
+body { font-size: 18px; line-height: 1.75; }
+.navigation { min-height: 86px; height: auto; }
+.brand-name { font-size: 17px; letter-spacing: .10em; }
+.brand-studio { font-size: 12px; letter-spacing: .12em; }
+.nav-links a { font-size: 17px; font-weight: 650; }
+.button { font-size: 17px; min-height: 54px; padding-inline: 25px; }
+.eyebrow, .pillar-number, .service-number, .detail-label,
+.work-project-meta span, .compiled-placeholder span,
+.project-detail-visual span { font-size: 14px; letter-spacing: .08em; }
+.hero-description, .section-introduction, .section-heading > p,
+.pillar p, .service-card p, .project-info p, .process-item p,
+.about-content p, .tools-note, .contact p, .work-hero-heading p,
+.work-project-meta p, .work-note p, .project-detail-heading p,
+.project-gallery-header p, .compiled-placeholder small,
+.compiled-note, .detail-list li { font-size: 18px; line-height: 1.75; }
+.project-back, .work-filter, .footer-links a, .footer-brand p,
+.footer-bottom, .availability { font-size: 16px; }
+.service-card h3, .pillar h3, .work-project-meta h2 { font-size: clamp(23px, 2.4vw, 29px); }
+@media (max-width: 800px) {
+    .site-header .nav-links,
+    .site-header.scrolled .nav-links { background: #ffffff; }
+    .site-header .nav-links a,
+    .site-header.scrolled .nav-links a { color: #21182e; font-size: 18px; }
+    .site-header .nav-links .nav-contact,
+    .site-header.scrolled .nav-links .nav-contact { color: #ffffff; }
+}
+@media (max-width: 650px) {
+    body { font-size: 17px; }
+    .navigation { min-height: 76px; }
+    .brand-name { font-size: 15px; }
+    .brand-studio { font-size: 10px; }
+    .hero-description, .section-introduction, .section-heading > p,
+    .pillar p, .service-card p, .project-info p, .process-item p,
+    .about-content p, .tools-note, .contact p, .work-hero-heading p,
+    .work-project-meta p, .work-note p, .project-detail-heading p,
+    .project-gallery-header p, .compiled-placeholder small,
+    .compiled-note, .detail-list li { font-size: 17px; }
+}
